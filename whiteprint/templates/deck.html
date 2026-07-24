@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方案标题 · whiteprint 工程白图 deck</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/base.css">
+<link rel="stylesheet" href="../assets/deck.css">
+<style>
+  /* ===== 内容编排优先（详见 SKILL.md「deck 内容编排与填充密度」） =====
+     原则：每页一个主题并讲明白；卡片按内容自然高度，禁止 CSS 拉伸撑满；
+     底部锚点（takeaway/callout/limit/时间线）用 margin-top:auto 吸底收尾。 */
+  .slide .s-body{justify-content:flex-start;gap:1.7rem}
+  .slide .s-body>.anchor{margin-top:auto}
+  .slide .wp-table th,.slide .wp-table td{padding:.95rem 1.2rem}
+  .slide .s-body>.mechs{display:flex;flex-direction:column;gap:1.3rem}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+  .slide .wp-card p{line-height:1.7}
+  /* 点题句：页首一句，讲清"这页讲什么、解决什么问题" */
+  .lede-sm{margin:0;color:var(--ink-soft);line-height:1.7;font-size:1rem}
+  /* 底部导航 / 时间线条 */
+  .navline{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
+  .navline .chip{font-size:.9rem;padding:.5rem .9rem}
+  .navline .sep{color:var(--ink-faint);font-family:var(--f-mono)}
+</style>
+</head>
+<body class="deck-mode">
+<div class="deck" data-format="3:4">
+
+  <!-- 第 1 页 · 封面（封面/结尾可不受密度约束） -->
+  <section class="slide cover is-active">
+    <div class="s-head"><span>Technical Specification</span><span>PROJ-2026-001</span></div>
+    <div class="s-body" style="justify-content:center">
+      <div class="eyebrow">工程白图 · 技术方案</div>
+      <h1 class="c-title">方案主标题<span class="en">English Subtitle — 一句话说清这个方案要做什么</span></h1>
+      <p class="c-lede" style="margin-top:1.6rem">封面导语，一两句核心主张。这套模板示范"内容编排优先"的 deck 写法：每页一个主题并讲明白，填充密度不多不少，不用 CSS 拉伸撑满。</p>
+    </div>
+    <div class="navline" style="margin-bottom:1.4rem">
+      <span class="chip">背景</span><span class="sep">→</span>
+      <span class="chip">命题</span><span class="sep">→</span>
+      <span class="chip">构成</span><span class="sep">→</span>
+      <span class="chip">对比</span><span class="sep">→</span>
+      <span class="chip">边界</span>
+    </div>
+    <div class="s-foot"><span>v1.0 · 2026-07-24</span><span>whiteprint 工程白图</span></div>
+  </section>
+
+  <!-- 第 2 页 · 核心命题（点题 + thesis + 充实卡片 + 底部锚点） -->
+  <section class="slide">
+    <div class="s-head"><span>Thesis</span><span>§ 01</span></div>
+    <div class="s-body">
+      <h2 class="p-title">核心命题</h2>
+      <p class="lede-sm">点题句：这一页讲什么、解决什么问题。让读者一开口就知道本页主题。</p>
+      <div class="thesis" data-label="核心命题">
+        <p>用一段话点出本质。<span class="hl">关键结论用青绿高亮</span>，<span class="hlw">风险或反向观点用橙红高亮</span>。这是整篇的论点锚点。</p>
+      </div>
+      <div class="cards c2">
+        <div class="wp-card soft"><h4>支撑点 A</h4><p>每张卡片写 2~3 行实质内容（例子 / 数据 / 解释），让饱满来自内容本身，而不是把卡片强行拉伸。</p><div class="kv"><span class="chip">关键词</span></div></div>
+        <div class="wp-card soft"><h4>支撑点 B</h4><p>正文讲清"是什么、为什么重要"。卡片按内容自然高度，不强求等高、不在卡片内部留白。</p><div class="kv"><span class="chip">关键词</span></div></div>
+        <div class="wp-card soft"><h4>支撑点 C</h4><p>可以给一个具体数字或案例，既增强说服力，也自然撑起卡片高度。</p><div class="kv"><span class="chip">关键词</span></div></div>
+        <div class="wp-card soft"><h4>支撑点 D</h4><p>关键词用 <code>.kv&gt;.chip</code> 列出，帮助读者快速抓重点。</p><div class="kv"><span class="chip">关键词</span></div></div>
+      </div>
+      <div class="callout anchor"><span class="big">一句话收束：</span>底部锚点用 margin-top:auto 吸到页脚上方，是真实内容的收尾，不算生硬填充。</div>
+    </div>
+    <div class="s-foot"><span>whiteprint</span><span>02</span></div>
+  </section>
+
+  <!-- 第 3 页 · 方案构成（点题 + 充实机制条目 + 底部锚点） -->
+  <section class="slide">
+    <div class="s-head"><span>Components</span><span>§ 02</span></div>
+    <div class="s-body">
+      <h2 class="p-title">方案构成</h2>
+      <p class="lede-sm">点题句：这个方案由哪几部分组成、各自解决什么子问题。机制条目按内容自然排列，不靠拉伸填满。</p>
+      <div class="mechs">
+        <div class="mech"><div class="mno">M-01</div><div class="mbody"><h3>组件一</h3><span class="en">Component One</span><p>讲清这个组件做什么、怎么做、解决哪个子问题，给到两三行实质内容。</p></div></div>
+        <div class="mech"><div class="mno">M-02</div><div class="mbody"><h3>组件二</h3><span class="en">Component Two</span><p>组件之间是递进或并列关系，按逻辑顺序排列；每个都把"为什么需要它"说清。</p></div></div>
+        <div class="mech"><div class="mno">M-03</div><div class="mbody"><h3>组件三</h3><span class="en">Component Three</span><p>内容充实后，机制列表自然占据页面主体，配合底部锚点即可填满，无需拉伸。</p></div></div>
+      </div>
+      <div class="callout anchor"><span class="big">一句话收束：</span>三个组件如何协同，共同达成整体目标。</div>
+    </div>
+    <div class="s-foot"><span>whiteprint</span><span>03</span></div>
+  </section>
+
+  <!-- 第 4 页 · 两种思路对比（点题 + duo 示意图 + 对比表 + 结论）——抽象/对比概念先配 SVG 讲明白 -->
+  <section class="slide">
+    <div class="s-head"><span>Comparison</span><span>§ 03</span></div>
+    <div class="s-body">
+      <h2 class="p-title">两种思路对比</h2>
+      <p class="lede-sm">点题句：抽象或对比类概念，先用示意图讲清"各自是什么、解决什么"，再给对比表——否则读者看不懂结论。</p>
+      <div class="duo">
+        <div class="wp-card">
+          <h4>思路 A · 链式</h4>
+          <svg viewBox="0 0 380 96" width="100%" role="img" aria-label="链式示意" style="margin:.6rem 0 .8rem">
+            <defs><marker id="arwA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#16233F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+            <rect x="18" y="28" width="58" height="40" fill="#fff" stroke="#0E7C66" stroke-width="1.5"/>
+            <text x="47" y="53" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="15" fill="#0E7C66">A ✓</text>
+            <line x1="76" y1="48" x2="104" y2="48" stroke="#16233F" stroke-width="1.5" marker-end="url(#arwA)"/>
+            <rect x="106" y="28" width="58" height="40" fill="#fff" stroke="#0E7C66" stroke-width="1.5"/>
+            <text x="135" y="53" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="15" fill="#0E7C66">B ✓</text>
+            <line x1="164" y1="48" x2="192" y2="48" stroke="#16233F" stroke-width="1.5" marker-end="url(#arwA)"/>
+            <rect x="194" y="28" width="58" height="40" fill="#fff" stroke="#C2391B" stroke-width="1.5"/>
+            <text x="223" y="53" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="15" fill="#C2391B">C ✗</text>
+            <line x1="252" y1="48" x2="280" y2="48" stroke="#8A95AC" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <rect x="282" y="28" width="58" height="40" fill="#fff" stroke="#8A95AC" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <text x="311" y="53" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="15" fill="#8A95AC">D 废</text>
+          </svg>
+          <p>先用图 + 文字讲清 A 是什么：一步步串行推进，<strong>一处断则后续全作废</strong>。结构简单、开销小，但鲁棒性受限。</p>
+        </div>
+        <div class="wp-card">
+          <h4>思路 B · 分支</h4>
+          <svg viewBox="0 0 380 96" width="100%" role="img" aria-label="分支示意" style="margin:.6rem 0 .8rem">
+            <defs><marker id="arwB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#16233F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+            <rect x="18" y="36" width="58" height="40" fill="#fff" stroke="#0E7C66" stroke-width="1.5"/>
+            <text x="47" y="61" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="15" fill="#0E7C66">A</text>
+            <path d="M76 46 L98 46 L98 26 L114 26" fill="none" stroke="#8A95AC" stroke-width="1.5" marker-end="url(#arwB)"/>
+            <rect x="116" y="10" width="62" height="32" fill="#fff" stroke="#C2391B" stroke-width="1.5"/>
+            <text x="147" y="31" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#C2391B">B1 ✗</text>
+            <path d="M76 66 L98 66 L98 80 L114 80" fill="none" stroke="#16233F" stroke-width="1.5" marker-end="url(#arwB)"/>
+            <rect x="116" y="64" width="62" height="32" fill="#fff" stroke="#0E7C66" stroke-width="1.5"/>
+            <text x="147" y="85" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#0E7C66">B2 ✓</text>
+            <line x1="178" y1="80" x2="212" y2="80" stroke="#16233F" stroke-width="1.5" marker-end="url(#arwB)"/>
+            <rect x="214" y="64" width="58" height="32" fill="#fff" stroke="#0E7C66" stroke-width="1.5"/>
+            <text x="243" y="85" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="14" fill="#0E7C66">C ✓</text>
+          </svg>
+          <p>再讲清 B 是什么：<strong>多分支并行</strong>，一路失败另一路兜底。更鲁棒，代价是开销随分支数上涨。</p>
+        </div>
+      </div>
+      <table class="wp-table">
+        <thead><tr><th>维度</th><th>思路 A</th><th>思路 B</th></tr></thead>
+        <tbody>
+          <tr><td>开销</td><td>小</td><td>大（随分支上涨）</td></tr>
+          <tr><td>鲁棒性</td><td>一般（一断全废）</td><td><span class="hl">更高</span>（分支兜底）</td></tr>
+          <tr><td>适用</td><td>默认路径</td><td>高风险、需兜底的环节</td></tr>
+        </tbody>
+      </table>
+      <div class="callout anchor"><span class="big">结论：</span>先把两个概念讲明白，读者才看得懂这张对比表和结论。</div>
+    </div>
+    <div class="s-foot"><span>whiteprint</span><span>04</span></div>
+  </section>
+
+  <!-- 第 5 页 · 边界与风险（点题 + limit 列表，诚实标注） -->
+  <section class="slide">
+    <div class="s-head"><span>Limits</span><span>§ 04</span></div>
+    <div class="s-body">
+      <h2 class="p-title">边界与风险</h2>
+      <p class="lede-sm">点题句：诚实标注方案的风险、适用边界与代价，不吹过头。每条给出触发条件，而不只是罗列名词。</p>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div class="limit"><div class="bar"></div><div class="lbody"><h4>风险一<span class="mono">RISK</span></h4><p>橙红边条标风险：讲清什么场景会失效、代价是什么、如何规避。</p></div></div>
+        <div class="limit"><div class="bar"></div><div class="lbody"><h4>风险二<span class="mono">RISK</span></h4><p>每条风险给出明确的触发条件与影响面，读者才能判断与自己的场景是否相关。</p></div></div>
+        <div class="limit info"><div class="bar"></div><div class="lbody"><h4>中性提示<span class="mono">NOTE</span></h4><p>墨蓝边条标中性提示：方案的天花板在哪、什么时候该换别的方案。</p></div></div>
+      </div>
+    </div>
+    <div class="s-foot"><span>whiteprint</span><span>05</span></div>
+  </section>
+
+  <!-- 第 6 页 · 结尾（结论 + 时间线） -->
+  <section class="slide cover">
+    <div class="s-head"><span>End</span><span>PROJ-2026-001</span></div>
+    <div class="s-body" style="justify-content:center">
+      <h2 class="p-title" style="font-size:2.4rem">结论<span style="color:var(--ink-soft);font-size:.45em;display:block;margin-top:.5em;font-style:italic">Conclusion</span></h2>
+      <div class="thesis" data-label="结论" style="margin-top:1.4rem">
+        <p>一段话说清最终结论与唯一要记住的点。<span class="hl">核心收益</span>、<span class="hlw">关键前提</span>。结尾页同样用真实内容收尾，不靠留白。</p>
+      </div>
+    </div>
+    <div class="navline" style="margin-bottom:1.4rem">
+      <span class="chip">阶段一</span><span class="sep">·</span>
+      <span class="chip">阶段二</span><span class="sep">·</span>
+      <span class="chip">阶段三</span><span class="sep">·</span>
+      <span class="chip">阶段四</span>
+    </div>
+    <div class="s-foot"><span>v1.0 · 2026-07-24</span><span>whiteprint 工程白图</span></div>
+  </section>
+
+</div>
+<div class="page-num">1 / 6</div>
+<script src="../assets/runtime.js"></script>
+</body>
+</html>
