@@ -1,0 +1,32 @@
+/* ==========================================================================
+   whiteprint · 长页模式（webpage）布局
+   垂直滚动、720-1040px 居中、图纸幅面边框 + 四角裁切标记。无需 runtime.js。
+   用法：<body class="webpage"> → <div class="sheet"> → <div class="inner">
+   ========================================================================== */
+html{font-size:16px}
+body.webpage{padding:3rem 1.2rem 5rem}
+
+/* 图纸幅面 */
+.sheet{
+  max-width:64rem;margin:0 auto;position:relative;
+  background:var(--paper);
+  border:1.5px solid var(--line);
+  box-shadow:0 0 0 .4rem var(--paper),0 0 0 .48rem var(--line);
+}
+.crop{position:absolute;width:1.1rem;height:1.1rem;pointer-events:none}
+.crop::before,.crop::after{content:"";position:absolute;background:var(--ink)}
+.crop::before{width:100%;height:1.5px;top:.5rem}
+.crop::after{height:100%;width:1.5px;left:.5rem}
+.crop.tl{top:-1.6rem;left:-1.6rem}
+.crop.tr{top:-1.6rem;right:-1.6rem}
+.crop.bl{bottom:-1.6rem;left:-1.6rem}
+.crop.br{bottom:-1.6rem;right:-1.6rem}
+
+.inner{padding:4rem 4.5rem 3.5rem}
+@media(max-width:46rem){.inner{padding:2.4rem 1.5rem}}
+
+/* 长页专属节奏 */
+.webpage .titleblock{margin-bottom:3.4rem}
+.webpage section{margin-top:4.8rem}
+.webpage footer{margin-top:5rem}
+.webpage .hero{margin-bottom:0}
